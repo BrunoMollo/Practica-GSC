@@ -1,0 +1,11 @@
+"use strict";
+const secuencia = Array.from(Array(10).keys());
+const animales = ['pinguino', 'oso hormiguero', 'zorro', 'jirafa'];
+const cadenasYNumeros = [1, 'uno', 2, 'dos', 3, 'tres'];
+const todosMisArreglos = [secuencia, animales, cadenasYNumeros];
+console.log('Ejercicio 1.5', todosMisArreglos);
+const secuencia2 = Array.from(Array(10).keys());
+const animales2 = ['pinguino', 'oso hormiguero', 'zorro', 'jirafa'];
+const cadenasYNumeros2 = [1, 'uno', 2, 'dos', 3, 'tres'];
+const todosMisArreglos2 = [secuencia2, animales2, cadenasYNumeros2];
+console.log('Ejercicio 1.5', todosMisArreglos);
