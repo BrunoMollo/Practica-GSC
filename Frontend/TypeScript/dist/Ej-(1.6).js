@@ -1,5 +1,5 @@
 "use strict";
-{
+{ //Con tuplas
     const elementoInventario = ['tuerca', 11];
     // despues lo desestructuramos
     const [nombre, cantidad] = elementoInventario;
@@ -10,7 +10,7 @@
     }
 }
 //---------------------------------------
-{
+{ //Con Objetos 
     const elementoInventario = { nombre: 'tuerca', cantidad: 11 };
     // despues lo desestructuramos
     const { nombre, cantidad } = elementoInventario;
