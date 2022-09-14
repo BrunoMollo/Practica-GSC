@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventsDataService } from './services/eventData/events-data.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [EventsDataService], //Funciona aunque deje el array vacio
   bootstrap: [AppComponent]
 })
 export class AppModule { }

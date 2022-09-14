@@ -2,6 +2,8 @@ import { PropertyRead } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../entities/Event/event';
 import { Location } from '../entities/Location/location';
+import { EventsDataService } from '../services/eventData/events-data.service';
+
 
 
 
@@ -12,13 +14,12 @@ import { Location } from '../entities/Location/location';
 })
 export class EventDetailsComponent implements OnInit {
 
-  event:Event = 
-  new Event('ngConf 2025', '3/1/2025','8am', new Location('123 Main St', 'Salt Lake City, UT','USA'));
+  event!: Event;
     
-  constructor() { 
-  }
+  constructor(private dataEventos:EventsDataService ) { }
 
   ngOnInit(): void {
+    this.event=this.dataEventos.getEvent();
   }
 
 }
