@@ -1,8 +1,7 @@
 import { PropertyRead } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Event } from '../entities/Event/event';
-import { Location } from '../entities/Location/location';
-import { EventsDataService } from '../services/eventData/events-data.service';
+import { Event } from '../../entities/Event/event';
+import { EventsDataService } from '../../services/eventData/events-data.service';
 
 
 

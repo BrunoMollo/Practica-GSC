@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
 import { EventsDataService } from './services/eventData/events-data.service';
 
 @NgModule({
