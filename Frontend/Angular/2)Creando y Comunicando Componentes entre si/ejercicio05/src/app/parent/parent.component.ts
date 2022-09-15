@@ -14,4 +14,8 @@ export class ParentComponent implements OnInit {
   ngOnInit() {
   }
 
+  reciveClick($event:number):void{
+    this.currentCounter=$event
+  }
+
 }
