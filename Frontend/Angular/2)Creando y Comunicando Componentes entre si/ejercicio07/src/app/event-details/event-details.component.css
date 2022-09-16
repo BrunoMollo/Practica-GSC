@@ -1,0 +1,32 @@
+.container{
+    display: inline-block;
+    margin: 30px;
+    padding: 20px;
+    
+    border: 2px dashed black;
+    border-radius: 15px;
+    
+    background-color: aliceblue;
+    transition-duration: .3s;
+}
+.container:hover{
+    transform: scale(1.07);
+    background-color: rgb(196, 222, 244);
+}
+
+
+.campos{
+    display: inline-block;
+    text-decoration: underline;
+    margin-right: 5px;
+    text-align: end;
+}
+
+
+.datos{
+    display: inline-block;
+    color: rgb(77, 77, 77);
+    font-style: italic;
+}
+
+
