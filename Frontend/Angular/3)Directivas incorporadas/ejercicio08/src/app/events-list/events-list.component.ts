@@ -48,6 +48,12 @@ export class EventsListComponent implements OnInit {
 				country: 'USA'
 			}
 		},
+		{
+			name: 'null-conf',
+			date: '0/00/0000',
+			time: '0am',
+			location: null
+		},
 	];
 	constructor() { }
 
