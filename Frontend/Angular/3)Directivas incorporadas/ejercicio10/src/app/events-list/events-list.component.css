@@ -1,0 +1,64 @@
+.thumbnail { margin-top:10px; padding-top:5px; }
+.label { font-size:14px; margin-bottom:10px; display:inline-block; }
+
+
+h2{
+    font-size: 25px;
+    text-decoration: underline;
+    margin: 0;
+}
+
+.container{
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.label-warning{
+    color: white;
+    background-color: blue;
+    border-radius: 8px;
+    
+    padding-top:2px;
+    padding-bottom: 2px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    float: right;
+
+}
+
+.well{
+    display: inline-block;
+
+    
+    border: 1px solid black;
+    border-bottom: 3px solid rgb(29, 29, 29);
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px ;
+
+    background-color: white;
+
+    box-shadow: 20px 18px 50px -33px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 20px 18px 50px -33px rgba(0,0,0,0.69);
+    -moz-box-shadow: 20px 18px 50px -33px rgba(0,0,0,0.69);
+
+    margin: 10px;
+    padding: 25px;
+    
+    width: 360px;
+
+    font-size: 18px;
+
+    transition-duration: .1s;
+}
+
+.well:hover{
+    transform: rotate(-0.5deg) scale(1.02);
+}
+
+.well:active{
+    background-color: rgb(238, 238, 238);
+    transform: rotate(1deg);
+}
