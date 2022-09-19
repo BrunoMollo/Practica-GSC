@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsListComponent implements OnInit {
 
+  dynamicStyles=(format?:string)=>{
+    return{
+    'in-person':(format=='InPerson'),
+    'online':(format=='Online'),
+    'adeterminar':(format==null)
+    }
+  }
+  
+
   events = [
     {
       name: 'Angular Connect',
