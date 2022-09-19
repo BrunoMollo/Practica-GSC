@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsListComponent implements OnInit {
 
-  dynamicStyles=(format?:string)=>{
+  dynamicClasses=(format?:string)=>{
     return{
     'in-person':(format=='InPerson'),
     'online':(format=='Online'),
