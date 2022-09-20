@@ -1,5 +1,4 @@
 "use strict";
-// agregar alias de tipo(s) aqui
 class Bird {
     species;
     constructor(species) {

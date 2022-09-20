@@ -10,9 +10,14 @@ interface Swimmer {
     swim(depth: number): void;
 }
     
-     // agregar alias de tipo(s) aqui
+// agregar alias de tipo(s) aqui
+type BirdLike = EggLayer & Flyer;
+type FishLike= EggLayer & Swimmer;
+
+
+
     
-class Bird implements EggLayer, Flyer {
+class Bird implements BirdLike {
     constructor(public species: string) { }
     
     layEggs(): void {
@@ -24,7 +29,7 @@ class Bird implements EggLayer, Flyer {
     }
 };
     
-class Fish implements EggLayer, Swimmer {
+class Fish implements FishLike {
     constructor(public species: string) { }
     
     layEggs(): void {
