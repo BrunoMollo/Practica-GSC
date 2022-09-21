@@ -1,21 +1,22 @@
 const numbers = [1, 2, 3, [44, 55], 6, [77, 88], 9, 10];
+const strings = ['A', 'B', 'C', ['D', 'E'], 'F', ['G', 'H', 'I'], 'J'];
+const numbersAndStrings=[1,2,['Q','W',3],4,'E',5 ]
 
-function flatten(array:Array<number|number[]>): Array<number> {
-    const flattened: number[] = [];
-    
+function flatten<T>(array:Array<T|T[]>): Array<T> {
+    const flattened: T[] = [];
+
     for (const element of array) {
         if (Array.isArray(element)) {
-            element; // any[] -> number[]
+            element; // any[] -> number[] -> T[]
             flattened.push(...element);
         } else {
-            element; // any -> number[]
+            element; // any -> number[] -> T
             flattened.push(element);
         }
     }
     return flattened;
 }
 
-const flattenedNumbers = flatten(numbers);
 
-console.log('[Ejercicio 4.3]', flattenedNumbers);
+console.log('[Ejercicio 4.3]', flatten(numbers), flatten(strings),flatten(numbersAndStrings));
 
