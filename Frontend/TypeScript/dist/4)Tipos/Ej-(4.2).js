@@ -5,7 +5,7 @@ function padLeft(value, padding) {
     if (typeof padding === 'number') {
         return `${Array(padding + 1).join(' ')}${value}`;
     }
-    return padding + value;
+    return padding + value; //concatena porque si llego hasta aca padding es un string  
 }
 console.log('[Ejercicio 4.2]', `
         |${padLeft('hola', 0)}
