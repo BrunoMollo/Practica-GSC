@@ -6,11 +6,11 @@ function flatten(array) {
     const flattened = [];
     for (const element of array) {
         if (Array.isArray(element)) {
-            element; // any[] -> number[]
+            element; // any[] -> number[] -> T[]
             flattened.push(...element);
         }
         else {
-            element; // any -> number[]
+            element; // any -> number[] -> T
             flattened.push(element);
         }
     }
