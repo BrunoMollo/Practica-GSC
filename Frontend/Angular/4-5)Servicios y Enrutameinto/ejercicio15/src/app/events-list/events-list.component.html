@@ -12,6 +12,9 @@
       <tr *ngFor="let event of events">
         <td><a [routerLink]="event.id.toString()" [routerLinkActive]="'active-link'">{{event.name}}</a></td>
       </tr>
+      <tr>
+        <td><a [routerLink]="['/eventos', 42]">Evento invalido</a></td>
+      </tr>
     </tbody>
   </table>
 

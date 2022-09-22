@@ -66,4 +66,8 @@ export class EventsDataService {
   getById(wantedId:number | undefined): Event|undefined {
     return this.events.find( e=>e.id===wantedId );
   }
+
+  exists(wantedId:number):boolean{
+    return this.events.some(e=>e.id===wantedId);
+  }
 }
