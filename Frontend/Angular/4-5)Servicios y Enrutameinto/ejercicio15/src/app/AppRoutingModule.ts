@@ -6,9 +6,8 @@ import { environment } from 'src/environments/environment';
 import { EventDetailsComponent } from './event-details/event-details.component';
 
 const routes:Routes=[
-  {path:'eventos', component: EventsListComponent, children:[
-    {path:':id', component:EventDetailsComponent }
-  ]}
+  {path:'eventos/:id', component:EventDetailsComponent },
+  {path:'eventos', component: EventsListComponent }
 ]
 
 @NgModule({

@@ -12,7 +12,9 @@ export class EventDetailsComponent implements OnInit {
 
   evento:Event | undefined;
 
-  constructor(private activatedRoute:ActivatedRoute, private eventData:EventsDataService) { }
+  constructor( private activatedRoute:ActivatedRoute
+              ,private eventData:EventsDataService
+              ,private router:Router) { }
 
   ngOnInit(): void {
     //Me suscitbo a la ruta para actualizar cunado cambia
@@ -23,6 +25,10 @@ export class EventDetailsComponent implements OnInit {
       this.evento = this.eventData.getById(+eventId);
       if(this.evento==undefined){throw new Error("No hay evento con el nombre buscado")};
     });
+  }
+
+  returnToEvents():void{
+    this.router.navigate(['eventos']);
   }
 
 }

@@ -4,6 +4,8 @@
     <div>Fecha: {{evento.date}}</div>
     <div>Hora: {{evento.time}}</div>
     <div>Lugar: {{evento.location.address}}, {{evento.location.city}}, {{evento.location.country}}</div>
+
+    <button (click)="returnToEvents()">volver a eventos</button>
 </div>
 
 <span  *ngIf="evento==null">Falta el evento</span>
