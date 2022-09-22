@@ -1,0 +1,11 @@
+<div *ngIf="evento!=null">
+    <h2>Detalles Eventos</h2>
+    <div>Nombre: {{evento.name}}</div>
+    <div>Fecha: {{evento.date}}</div>
+    <div>Hora: {{evento.time}}</div>
+    <div>Lugar: {{evento.location.address}}, {{evento.location.city}}, {{evento.location.country}}</div>
+</div>
+
+<span  *ngIf="evento==null">Falta el evento</span>
+
+

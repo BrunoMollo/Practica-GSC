@@ -54,4 +54,8 @@ export class EventsDataService {
   getEvents():Event[]{
     return this.events;
   }
+
+  getByName(wantedName:String | undefined): Event|undefined {
+    return this.events.find( e=>e.name===wantedName );
+  }
 }
