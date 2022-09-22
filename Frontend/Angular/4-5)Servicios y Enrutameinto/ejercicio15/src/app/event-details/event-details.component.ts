@@ -17,10 +17,10 @@ export class EventDetailsComponent implements OnInit {
   ngOnInit(): void {
     //Me suscitbo a la ruta para actualizar cunado cambia
     this.activatedRoute.paramMap.subscribe( params => {
-      let eventName:string| null=params.get("name");
-      if(eventName==null){throw new Error("No hay nombre de evento")};
+      let eventId:string| null=params.get("id");
+      if(eventId==null){throw new Error("No hay nombre de evento")};
       
-      this.evento = this.eventData.getByName(eventName);
+      this.evento = this.eventData.getById(+eventId);
       if(this.evento==undefined){throw new Error("No hay evento con el nombre buscado")};
     });
   }

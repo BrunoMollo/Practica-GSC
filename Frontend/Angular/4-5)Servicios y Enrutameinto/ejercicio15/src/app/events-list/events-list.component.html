@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let event of events">
-        <td><a [routerLink]="event.name" [routerLinkActive]="'active-link'">{{event.name}}</a></td>
+        <td><a [routerLink]="event.id.toString()" [routerLinkActive]="'active-link'">{{event.name}}</a></td>
       </tr>
     </tbody>
   </table>

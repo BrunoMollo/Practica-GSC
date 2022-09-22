@@ -8,6 +8,7 @@ export class EventsDataService {
 
   events:Event[]= [
     {
+      id:1,
       name: 'Angular Connect',
       date: '9/26/2036',
       time: '10am',
@@ -18,6 +19,7 @@ export class EventsDataService {
       }
     },
     {
+      id:2,
       name: 'ng-nl',
       date: '4/15/2037',
       time: '9am',
@@ -28,6 +30,7 @@ export class EventsDataService {
       }
     },
     {
+      id:4,
       name: 'ng-conf 2037',
       date: '4/15/2037',
       time: '9am',
@@ -38,6 +41,7 @@ export class EventsDataService {
       }
     },
     {
+      id:6,
       name: 'UN Angular Summit',
       date: '6/10/2037',
       time: '8am',
@@ -57,5 +61,9 @@ export class EventsDataService {
 
   getByName(wantedName:String | undefined): Event|undefined {
     return this.events.find( e=>e.name===wantedName );
+  }
+
+  getById(wantedId:number | undefined): Event|undefined {
+    return this.events.find( e=>e.id===wantedId );
   }
 }
