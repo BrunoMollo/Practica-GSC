@@ -5,9 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventExistsGuard } from './guards/event-exists.guard';
+import { EventHasBeenRevisedGuard } from './guards/event-has-been-revised.guard';
 
 const routes:Routes=[
-  {path:'eventos/:id', component:EventDetailsComponent , canActivate:[EventExistsGuard] },
+  {path:'eventos/:id', component:EventDetailsComponent , canActivate:[EventExistsGuard], canDeactivate:[EventHasBeenRevisedGuard] },
   {path:'eventos', component: EventsListComponent }
 ]
 

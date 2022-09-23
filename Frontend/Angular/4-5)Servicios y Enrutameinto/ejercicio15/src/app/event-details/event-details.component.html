@@ -5,7 +5,12 @@
     <div>Hora: {{evento.time}}</div>
     <div>Lugar: {{evento.location.address}}, {{evento.location.city}}, {{evento.location.country}}</div>
 
+    <div>
+        <label for="">revisada:</label><input type="checkbox" [checked]="reviewed" (input)="toggleReviewed()">
+    </div>
+
     <button (click)="returnToEvents()">volver a eventos</button>
+
 </div>
 
 <span  *ngIf="evento==null">Falta el evento</span>

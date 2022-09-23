@@ -11,6 +11,7 @@ import { EventsDataService } from '../services/events-data.service';
 export class EventDetailsComponent implements OnInit {
 
   evento:Event | undefined;
+  reviewed:boolean=false;
 
   constructor( private activatedRoute:ActivatedRoute
               ,private eventData:EventsDataService
@@ -29,6 +30,10 @@ export class EventDetailsComponent implements OnInit {
 
   returnToEvents():void{
     this.router.navigate(['eventos']);
+  }
+
+  toggleReviewed(){
+    this.reviewed=!this.reviewed
   }
 
 }
