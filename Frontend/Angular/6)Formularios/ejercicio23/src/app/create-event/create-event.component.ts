@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
 import { Event } from '../entitys/event';
@@ -17,13 +17,13 @@ export class CreateEventComponent implements OnInit {
 
   constructor(private eventService: EventService, private router: Router, private fromBuilder: FormBuilder) { 
     this.eventForm= fromBuilder.group({
-      name:[''],
-      date: [''],
-      time: [''],
+      name:['', [Validators.required, Validators.minLength(3)]],
+      date: ['', [Validators.required, Validators.minLength(6)]],
+      time: ['', [Validators.required, Validators.minLength(4)]],
       location: fromBuilder.group({
-        address: [''],
-        city: [''],
-        country: ['']
+        address: ['', [Validators.required, Validators.minLength(3)]],
+        city: ['', [Validators.required, Validators.minLength(3)]],
+        country: ['', [Validators.required, Validators.minLength(3)]]
       })
     })
   }
@@ -33,6 +33,8 @@ export class CreateEventComponent implements OnInit {
   }
 
   guardar(){
+    if(!this.eventForm.valid){ return } 
+
     let nuevoEvento:Event=this.eventForm.value;
     this.eventService.saveEvent(nuevoEvento);
     this.router.navigate(['/events']);
