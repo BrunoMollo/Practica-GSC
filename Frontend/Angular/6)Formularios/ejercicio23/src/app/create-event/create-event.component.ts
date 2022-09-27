@@ -13,18 +13,19 @@ export class CreateEventComponent implements OnInit {
 
 
 
-  eventForm:FormGroup= new FormGroup({
-    name:new FormControl(),
-    date: new FormControl(),
-    time: new FormControl(),
-    location: new FormGroup({
-      address: new FormControl(),
-      city: new FormControl(),
-      country: new FormControl(),
-    })
-  })
+  eventForm:FormGroup
 
-  constructor(private eventService: EventService, private router: Router) { 
+  constructor(private eventService: EventService, private router: Router, private fromBuilder: FormBuilder) { 
+    this.eventForm= fromBuilder.group({
+      name:[''],
+      date: [''],
+      time: [''],
+      location: fromBuilder.group({
+        address: [''],
+        city: [''],
+        country: ['']
+      })
+    })
   }
 
 
@@ -32,17 +33,7 @@ export class CreateEventComponent implements OnInit {
   }
 
   guardar(){
-    let nuevoEvento:Event={
-      id: undefined,
-      name: this.eventForm.get("name")?.value,
-      date: this.eventForm.get("date")?.value,
-      time: this.eventForm.get("time")?.value,
-      location: {
-        address: this.eventForm.get("location")?.get("address")?.value,
-        city: this.eventForm.get("location")?.get("city")?.value,
-        country: this.eventForm.get("location")?.get("country")?.value,
-      }
-    }
+    let nuevoEvento:Event=this.eventForm.value;
     this.eventService.saveEvent(nuevoEvento);
     this.router.navigate(['/events']);
   }
