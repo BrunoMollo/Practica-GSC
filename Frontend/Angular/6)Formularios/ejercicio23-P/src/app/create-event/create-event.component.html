@@ -1,31 +1,33 @@
 <div>
-  <form>
+  <form (ngSubmit)="guardar()" >
     <div class="form-group">
       <label for="event-name">Nombre del evento:</label>
-      <input id="event-name" type="text"/>
+      <input id="event-name" type="text" [(ngModel)]="modelEvent.name" name="name"/>
     </div>
     <div class="form-group">
       <label for="date">Fecha: </label>
-      <input id="date" type="text"/>
+      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date"/>
     </div>
     <div class="form-group">
       <label for="time">Hora: </label>
-      <input id="time" type="text"/>
+      <input id="time" type="text" [(ngModel)]="modelEvent.time" name="time"/>
     </div>
     <div class="form-group">
       <label for="address">Dirección: </label>
-      <input id="address" type="text"/>
+      <input id="address" type="text" [(ngModel)]="modelEvent.location.address" name="location.adress"/>
     </div>
     <div class="form-group">
       <label for="city">Ciudad: </label>
-      <input id="city" type="text"/>
+      <input id="city" type="text" [(ngModel)]="modelEvent.location.city" name="location.city"/>
     </div>
     <div class="form-group">
       <label for="country">Pais: </label>
-      <input id="country" type="text"/>
+      <input id="country" type="text" [(ngModel)]="modelEvent.location.country" name="location.country"/>
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>
     <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
   </form>
 </div>
+
+{{modelEvent | json}}
