@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
 import { Event } from '../entitys/event';
-import { ValidationErrors } from '@angular/forms';
+import { FormControl, NgModel, ValidationErrors } from '@angular/forms';
 
 
 @Component({
@@ -24,6 +24,18 @@ export class CreateEventComponent implements OnInit {
     }
   }
 
+  mustBeWarn(input:NgModel):boolean {
+    return input.control.invalid && input.control.touched  
+  }
+
+  dynamicStyles(input:NgModel){
+    if( this.mustBeWarn(input) ){
+      return { "background-color":"#fbb" }
+    }
+    else{
+      return {}
+    } 
+  }
 
   constructor(private eventService: EventService, private router: Router) { }
 

@@ -2,33 +2,33 @@
   <form #miForm="ngForm" (ngSubmit)="guardar()" >
     <div class="form-group">
       <label for="event-name">Nombre del evento:</label>
-      <input id="event-name" type="text" [(ngModel)]="modelEvent.name" name="name" required #name="ngModel"/>
-      <span *ngIf="name.invalid && name.touched" >Requerido</span>
+      <input id="event-name" type="text" [(ngModel)]="modelEvent.name" name="name" required #name="ngModel" [ngStyle]="dynamicStyles(name)"/>
+      <span *ngIf="mustBeWarn(name)" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="date">Fecha: </label>
-      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date" required #date="ngModel"/>
-      <span *ngIf="date.invalid && date.touched" >Requerido</span>
+      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date" required #date="ngModel" [ngStyle]="dynamicStyles(date)"/>
+      <span *ngIf="mustBeWarn(date)" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="time">Hora: </label>
-      <input id="time" type="text" [(ngModel)]="modelEvent.time" name="time" required #time="ngModel"/>
-      <span *ngIf="time.invalid && time.touched" >Requerido</span>
+      <input id="time" type="text" [(ngModel)]="modelEvent.time" name="time" required #time="ngModel" [ngStyle]="dynamicStyles(time)"/>
+      <span *ngIf="mustBeWarn(time)" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="address">Dirección: </label>
-      <input id="address" type="text" [(ngModel)]="modelEvent.location.address" name="location.adress" required #address="ngModel"/>
-      <span *ngIf="address.invalid && address.touched" >Requerido</span>
+      <input id="address" type="text" [(ngModel)]="modelEvent.location.address" name="location.adress" required #address="ngModel" [ngStyle]="dynamicStyles(address)"/>
+      <span *ngIf="mustBeWarn(address)" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="city">Ciudad: </label>
-      <input id="city" type="text" [(ngModel)]="modelEvent.location.city" name="location.city" required #city="ngModel"/>
-      <span *ngIf="city.invalid && city.touched" >Requerido</span>
+      <input id="city" type="text" [(ngModel)]="modelEvent.location.city" name="location.city" required #city="ngModel" [ngStyle]="dynamicStyles(city)"/>
+      <span *ngIf="mustBeWarn(city)" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="country">Pais: </label>
-      <input id="country" type="text" [(ngModel)]="modelEvent.location.country" name="location.country" required pattern="[A-Z][A-Z]" #country="ngModel"/>
-      <span *ngIf="country.invalid && country.touched" >{{getErrorMessage(country.control.errors)}}</span>
+      <input id="country" type="text" [(ngModel)]="modelEvent.location.country" name="location.country" required pattern="[A-Z][A-Z]" #country="ngModel" [ngStyle]="dynamicStyles(country)"/>
+      <span *ngIf="mustBeWarn(country)" >{{getErrorMessage(country.control.errors)}}</span>
 
     </div>
 
