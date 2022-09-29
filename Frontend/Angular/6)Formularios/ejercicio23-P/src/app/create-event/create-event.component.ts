@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
 import { Event } from '../entitys/event';
+import { ValidationErrors } from '@angular/forms';
 
 
 @Component({
@@ -27,6 +28,13 @@ export class CreateEventComponent implements OnInit {
   constructor(private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  getErrorMessage(errors:ValidationErrors | null):string|null{
+    if(!errors) return null
+    if(errors['pattern']) return "Deben ser dos letras en mayusculas"
+    if(errors['required']) return "Requerido"
+    else return null;
   }
 
   guardar(){

@@ -1,31 +1,38 @@
 <div>
-  <form (ngSubmit)="guardar()" >
+  <form #miForm="ngForm" (ngSubmit)="guardar()" >
     <div class="form-group">
       <label for="event-name">Nombre del evento:</label>
-      <input id="event-name" type="text" [(ngModel)]="modelEvent.name" name="name"/>
+      <input id="event-name" type="text" [(ngModel)]="modelEvent.name" name="name" required #name="ngModel"/>
+      <span *ngIf="name.invalid && name.touched" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="date">Fecha: </label>
-      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date"/>
+      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date" required #date="ngModel"/>
+      <span *ngIf="date.invalid && date.touched" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="time">Hora: </label>
-      <input id="time" type="text" [(ngModel)]="modelEvent.time" name="time"/>
+      <input id="time" type="text" [(ngModel)]="modelEvent.time" name="time" required #time="ngModel"/>
+      <span *ngIf="time.invalid && time.touched" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="address">Dirección: </label>
-      <input id="address" type="text" [(ngModel)]="modelEvent.location.address" name="location.adress"/>
+      <input id="address" type="text" [(ngModel)]="modelEvent.location.address" name="location.adress" required #address="ngModel"/>
+      <span *ngIf="address.invalid && address.touched" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="city">Ciudad: </label>
-      <input id="city" type="text" [(ngModel)]="modelEvent.location.city" name="location.city"/>
+      <input id="city" type="text" [(ngModel)]="modelEvent.location.city" name="location.city" required #city="ngModel"/>
+      <span *ngIf="city.invalid && city.touched" >Requerido</span>
     </div>
     <div class="form-group">
       <label for="country">Pais: </label>
-      <input id="country" type="text" [(ngModel)]="modelEvent.location.country" name="location.country"/>
+      <input id="country" type="text" [(ngModel)]="modelEvent.location.country" name="location.country" required pattern="[A-Z][A-Z]" #country="ngModel"/>
+      <span *ngIf="country.invalid && country.touched" >{{getErrorMessage(country.control.errors)}}</span>
+
     </div>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="miForm.invalid">Guardar</button>
     <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
   </form>
 </div>
