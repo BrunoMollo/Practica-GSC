@@ -3,6 +3,7 @@ import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventService } from '../event.service';
 import { Event } from '../entitys/event';
+import { CustomValidators } from '../CustomValidators';
 
 
 @Component({
@@ -16,8 +17,8 @@ export class CreateEventComponent implements OnInit {
 
   constructor(private eventService: EventService, private router: Router, private fromBuilder: FormBuilder) { 
     this.eventForm= fromBuilder.group({
-      name:['', [Validators.required]],
-      date: ['', [Validators.required]],
+      name:['', [Validators.required, CustomValidators.dontRepeatName(eventService)]],
+      date: ['', [Validators.required, CustomValidators.excludeWeekends, CustomValidators.dateFormat]],
       time: ['', [Validators.required]],
       location: fromBuilder.group({
         address: ['', [Validators.required]],
@@ -30,7 +31,7 @@ export class CreateEventComponent implements OnInit {
   hasToWarn(field:string):Boolean{
     let input=this.eventForm.get(field);
     if(!input) return false;
-    return input.invalid && !input.pristine;
+    return input.invalid && !input.untouched  ;
   }
 
 
@@ -41,13 +42,20 @@ export class CreateEventComponent implements OnInit {
   }
 
 
-  private failsWith(error:string, field:string):boolean{
-    return this.eventForm.get(field)?.errors?.[error]
-  }
+
+  private errorMsj:{type:string,msj:string}[]=[
+    {type:'pattern', msj:"Deben ser dos letras en mayusculas"},
+    {type:'required', msj:"Requerido"},
+    {type:'isWeekend', msj:"No se puede poner un evento un fin de semana"},
+    {type:'invalidDate', msj:"Formato de fecha invlaido"},
+    {type:'repeatedName', msj:"Nombre de evento ya existe" }
+  ]
   getErrorMessage(field:string):string|null{
-    if(this.failsWith('pattern',field)) return "Deben ser dos letras en mayusculas"
-    if(this.failsWith('required',field)) return "Requerido"
-    else return null;
+    let inputErrors=this.eventForm.get(field)?.errors
+    for( let e of this.errorMsj){
+      if(inputErrors?.[e.type]) return e.msj
+    }
+    return null
   }
 
 

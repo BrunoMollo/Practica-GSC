@@ -63,4 +63,8 @@ export class EventService {
   getEvents():Event[] {
     return this.EVENTS;
   }
+
+  nameExists(name:string):boolean{
+    return this.EVENTS.some((e)=>e.name==name)
+  }
 }
