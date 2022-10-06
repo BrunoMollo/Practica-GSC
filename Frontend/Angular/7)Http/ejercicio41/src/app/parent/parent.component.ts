@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { of, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -17,7 +17,7 @@ export class ParentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // ingrese el código aquí
+    this.promise=lastValueFrom(this.obs)
   }
 
   listen(): void {
