@@ -46,6 +46,8 @@ export class CreateEventComponent implements OnInit {
     if(!errors) return null
     if(errors['pattern']) return "Deben ser dos letras en mayusculas"
     if(errors['required']) return "Requerido"
+    if(errors['isWeekend']) return "No se puede hacer un finde"
+    if(errors['invalidDate']) return "Fecha invlaida"
     else return null;
   }
 

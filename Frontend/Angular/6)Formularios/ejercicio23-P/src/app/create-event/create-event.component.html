@@ -3,27 +3,27 @@
     <div class="form-group">
       <label for="event-name">Nombre del evento:</label>
       <input id="event-name" type="text" [(ngModel)]="modelEvent.name" name="name" required #name="ngModel" [ngStyle]="dynamicStyles(name)"/>
-      <span *ngIf="mustBeWarn(name)" >Requerido</span>
+      <span *ngIf="mustBeWarn(name)" >{{getErrorMessage(name.control.errors)}}</span>
     </div>
     <div class="form-group">
       <label for="date">Fecha: </label>
-      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date" required #date="ngModel" [ngStyle]="dynamicStyles(date)"/>
-      <span *ngIf="mustBeWarn(date)" >Requerido</span>
+      <input id="date" type="text" [(ngModel)]="modelEvent.date" name="date" required appExcludeWeekends #date="ngModel" [ngStyle]="dynamicStyles(date)"/>
+      <span *ngIf="mustBeWarn(date)" >{{getErrorMessage(date.control.errors)}}</span>
     </div>
     <div class="form-group">
       <label for="time">Hora: </label>
       <input id="time" type="text" [(ngModel)]="modelEvent.time" name="time" required #time="ngModel" [ngStyle]="dynamicStyles(time)"/>
-      <span *ngIf="mustBeWarn(time)" >Requerido</span>
+      <span *ngIf="mustBeWarn(time)" >{{getErrorMessage(time.control.errors)}}</span>
     </div>
     <div class="form-group">
       <label for="address">Dirección: </label>
       <input id="address" type="text" [(ngModel)]="modelEvent.location.address" name="location.adress" required #address="ngModel" [ngStyle]="dynamicStyles(address)"/>
-      <span *ngIf="mustBeWarn(address)" >Requerido</span>
+      <span *ngIf="mustBeWarn(address)" >{{getErrorMessage(address.control.errors)}}</span>
     </div>
     <div class="form-group">
       <label for="city">Ciudad: </label>
       <input id="city" type="text" [(ngModel)]="modelEvent.location.city" name="location.city" required #city="ngModel" [ngStyle]="dynamicStyles(city)"/>
-      <span *ngIf="mustBeWarn(city)" >Requerido</span>
+      <span *ngIf="mustBeWarn(city)" >{{getErrorMessage(city.control.errors)}}</span>
     </div>
     <div class="form-group">
       <label for="country">Pais: </label>
@@ -36,5 +36,3 @@
     <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
   </form>
 </div>
-
-{{modelEvent | json}}

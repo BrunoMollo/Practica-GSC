@@ -7,12 +7,14 @@ import { EventsListComponent } from './events-list/events-list.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ExcludeWeekendsDirective } from './directives/exclude-weekends.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsListComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ExcludeWeekendsDirective
   ],
   imports: [
     BrowserModule,
