@@ -3,7 +3,9 @@
 <button (click)="listen()" class="btn btn-primary">Escuchando una Promesa</button>
 
 <br />
-  El valor es {{ result }}
+  El primer valor es {{ firstResult }}
+<br />
+  El ultimo valor es {{ lastResult }}
 <br />
 
-<div *ngIf="result === 35">Felicitaciones!</div>
+<div *ngIf="firstResult != null">Felicitaciones!</div>
