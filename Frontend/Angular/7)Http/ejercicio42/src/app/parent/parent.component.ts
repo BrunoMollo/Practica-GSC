@@ -10,14 +10,19 @@ import { FilmsDataService } from '../services/films-data.service';
 })
 export class ParentComponent implements OnInit {
 
-  movieList!: Film[]
+  movieList!: Film[] //no me conviene guardarlo como obsevable para modificar el estado de pending
+  pending=false
 
   constructor(private filmData:FilmsDataService) { }
 
   ngOnInit() {
   }
 
-  makeRequest() {
-    this.filmData.getAll().subscribe((data)=>this.movieList=data)
+  makeRequest():void{
+    this.pending=true
+    this.filmData.getAll().subscribe((data)=>{
+        this.movieList=data
+        this.pending=false
+      })
   }
 }
