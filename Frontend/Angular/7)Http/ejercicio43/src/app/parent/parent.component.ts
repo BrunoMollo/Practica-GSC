@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { map, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-parent',
@@ -8,18 +8,18 @@ import { Subject } from 'rxjs';
 })
 export class ParentComponent implements OnInit {
 
-  subject;
+  subject: Subject<string>= new Subject();
   output: string[] = [];
   
-  constructor() {
-    this.subject = new Subject();
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.subject
-    .subscribe(key => {
-      this.output.push(key);
-    });
+      .pipe(map( (k)=>k.toUpperCase() ))
+      .subscribe(key => {
+        //this.output.push(key);   <- al no reasignar el arreglo, no se vuelve a actualizar la ui 
+        this.output=[...this.output, key]
+      })
   }
 
   keypress(e: any): void {
