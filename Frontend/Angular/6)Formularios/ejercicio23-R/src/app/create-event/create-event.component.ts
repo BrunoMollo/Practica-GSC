@@ -31,7 +31,7 @@ export class CreateEventComponent implements OnInit {
   hasToWarn(field:string):Boolean{
     let input=this.eventForm.get(field);
     if(!input) return false;
-    return input.invalid && !input.untouched  ;
+    return input.invalid && input.touched;
   }
 
 
