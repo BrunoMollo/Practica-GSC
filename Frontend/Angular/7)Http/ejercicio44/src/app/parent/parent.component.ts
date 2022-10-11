@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Forecast } from '../entities/forecast';
+import { WeatherDataService } from '../service/weather-data.service';
+
 
 @Component({
   selector: 'app-parent',
@@ -7,15 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  forecast:any;
-  city:any;
+  forecast!:Forecast;
+  city = '';
 
-  constructor() { }
+  constructor(private weaterData: WeatherDataService) { }
 
   ngOnInit() {
   }
 
   makeRequest() {
+    this.weaterData.getTomorrowForecast(this.city).subscribe(
+      (data)=>this.forecast=data
+    ) 
     
   }
 

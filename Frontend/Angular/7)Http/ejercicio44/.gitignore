@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #private keys
-\src\environments\privateKeys.ts
+privateKeys.ts

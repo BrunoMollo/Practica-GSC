@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { privateKeys } from 'src/environments/privateKeys';
+import { Forecast } from '../entities/forecast';
+
 
 
 @Injectable({
@@ -9,10 +12,12 @@ export class WeatherDataService {
 
   appid=privateKeys.apiKeyWeather;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTomorrowForecast(city:any){
+  getTomorrowForecast(city:string){
     const url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + this.appid;
+    
+    return this.http.get<Forecast>(url)
   }
  
 }
