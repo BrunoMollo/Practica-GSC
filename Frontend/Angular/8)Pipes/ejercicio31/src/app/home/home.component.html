@@ -1,4 +1,4 @@
-{{ theDate }} - debe ser "April 1, 2035"<br />
-{{ theDate }} - debe ser "04-01-2035"<br />
-{{ theDate }} - debe ser "2:15 PM"<br />
-{{ theDate }} - debe ser "April 1, 14:15"<br />
+<b>{{ theDate | date:"MMMM d, yyyy" }}</b> - debe ser <i>"April 1, 2035"</i>  <br />
+<b>{{ theDate | date:"MM-dd-yyyy" }}</b> - debe ser <i>"04-01-2035" </i>  <br />
+<b>{{ theDate | date:"h:mm a" }}</b> - debe ser <i>"2:15 PM"</i>  <br />
+<b>{{ theDate | date:"MMMM d, H:mm" }}</b> - debe ser <i>"April 1, 14:15"</i>  <br />
