@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie, Ratings } from '../entities/movie';
 
 @Component({
   selector: 'app-parent',
@@ -7,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  movies = [
-    { name:  "Star Wars Episode X", rating: "PG" },
-    { name:  "Rocky XV", rating: "PG-13" },
-    { name:  "Jaws the Revenge", rating: "R" },
-    { name:  "Avengers 6 - The Marriage of the Hulk", rating: "PG-13" },
-    { name:  "Finding Dory's Grandkids", rating: "G" },
+  movies:Movie[] = [
+    new Movie("Star Wars Episode X", Ratings["PG"] ),
+    new Movie("Rocky XV", Ratings["PG-13"] ),
+    new Movie("Jaws the Revenge", Ratings["R"] ),
+    new Movie("Avengers 6 - The Marriage of the Hulk", Ratings["PG-13"] ),
+    new Movie("Finding Dory's Grandkids", Ratings["G"] ),
   ];
 
   constructor() { }
@@ -21,11 +22,11 @@ export class ParentComponent implements OnInit {
   }
 
   sortAsc() {
-    // Implementar
+    this.movies.sort(Movie.ascendingRating)
   }
 
   sortDesc() {
-    // Implementar
+    this.movies.sort(Movie.desendingRating)
   }
   
 }
