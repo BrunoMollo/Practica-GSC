@@ -22,12 +22,15 @@ export class ParentComponent implements OnInit {
 
   displayedMovies: Movie[] = [];
 
-  constructor() { }
+  constructor() { 
+    this.displayedMovies=[...this.movies]
+  }
 
   ngOnInit() {
   }
 
   filter(rating: string) {
+    this.displayedMovies=[...this.movies].filter((movie)=>movie.rating==rating)
   }
 
 }
