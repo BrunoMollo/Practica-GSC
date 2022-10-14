@@ -18,7 +18,7 @@ import { MoviesComponent } from './movies/movies.component';
       {
         path: '',
         redirectTo: '/movies/1',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'movies/:id',
